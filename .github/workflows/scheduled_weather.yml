@@ -1,0 +1,34 @@
+name: Weather images
+on:
+  schedule:
+    - cron: '15 00 * * *'
+    - cron: '15 06 * * *'
+    - cron: '15 12 * * *'
+    - cron: '15 18 * * *'
+jobs:
+
+  bot:
+    name: bot scheduled weather
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Set up Python 3.10.x
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.10.x"
+          
+      - name: Install pipenv
+        run: pip install pipenv
+
+      - name: Install wkhtmltopdf
+        run: sudo apt-get install wkhtmltopdf
+        
+      - name: Run forecast for Mad Bna
+        run: |
+          pipenv install
+          pipenv run python main.py
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          WEEKLY_FORECAST_CHAT_ID: -1002008440054
