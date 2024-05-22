@@ -1,10 +1,5 @@
-name: Scheduled Weather Images
-on:
-  schedule:
-    - cron: '15 00 * * *'
-    - cron: '15 06 * * *'
-    - cron: '15 12 * * *'
-    - cron: '15 18 * * *'
+name: Test Weather Images
+on: [push]
 jobs:
 
   bot:
@@ -31,4 +26,4 @@ jobs:
           pipenv run python main.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          WEEKLY_FORECAST_CHAT_ID: -1002008440054
+          WEEKLY_FORECAST_CHAT_ID: -1001154352226

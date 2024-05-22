@@ -3,11 +3,12 @@ import asyncio
 import telegram
 import imgkit
 
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 
 load_dotenv()
 
-URL = 'https://www.aemet.es/es/eltiempo/prediccion/municipios/'
+URL = 'https://www.aemet.es/en/eltiempo/prediccion/municipios/'
 LOCATIONS = [
     {
         'aemet_id': 'madrid-id28079',
@@ -56,10 +57,23 @@ async def main():
 
     bot = telegram.Bot(telegram_token)
 
+    formatted_now = datetime.now(timezone.utc).strftime("%H:%M on %b %d")
+    header_text = f"Forecast updated at {formatted_now} UTC. Weather for the Check Points defined in the route" \
+                  f" between Madrid and Barcelona. Updates every 6 hours. \n\n" \
+                  f"<a href='{URL}'>©AEMET</a>"
+
+    await bot.send_message(
+        text=header_text,
+        parse_mode='HTML',
+        chat_id=chat_id
+    )
+    async with bot:
+        pass
+
     for location in LOCATIONS:
         aemet_id = location.get('aemet_id')
         caption = location.get('caption')
-        caption_link = f"<a href='{URL + aemet_id}'>{caption}</a> ©AEMET"
+        caption_link = f"<a href='{URL + aemet_id}'>{caption} ©AEMET</a>"
 
         get_weather_image(aemet_id)
         async with bot:
