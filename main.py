@@ -73,7 +73,8 @@ async def main():
     for location in LOCATIONS:
         aemet_id = location.get('aemet_id')
         caption = location.get('caption')
-        caption_link = f"<a href='{URL + aemet_id}'>{caption} ©AEMET</a>"
+        caption_link = f"<a href='{URL + aemet_id}'>{caption}</a> --> " \
+                       f"<a href='{URL}horas/{aemet_id}'> Hourly detail</a>"
 
         get_weather_image(aemet_id)
         async with bot:
