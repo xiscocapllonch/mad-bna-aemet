@@ -31,4 +31,4 @@ jobs:
           pipenv run python main.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-          WEEKLY_FORECAST_CHAT_ID: -1002008440054
+          WEEKLY_FORECAST_CHAT_ID: -1002586766682
