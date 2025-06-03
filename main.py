@@ -39,12 +39,16 @@ TMP_IMG_PATH = 'tmp.jpg'
 
 
 def get_weather_image(location_id):
-    imgkit.from_url(URL + location_id, TMP_IMG_PATH, {
-        'crop-y': '670',
-        'crop-h': '380',
-        'crop-x': '35',
-        'crop-w': '960'
-    })
+    full_url = URL + location_id
+    try:
+        imgkit.from_url(full_url, TMP_IMG_PATH, {
+            'crop-y': '670',
+            'crop-h': '380',
+            'crop-x': '35',
+            'crop-w': '960'
+        })
+    except OSError as e:
+        print(f"Wkhtmltoimage ignoring error: {e}")
 
 
 async def main():

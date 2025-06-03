@@ -14,16 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       
-      - name: Set up Python 3.10.x
+      - name: Set up Python 3.12.x
         uses: actions/setup-python@v1
         with:
-          python-version: "3.10.x"
+          python-version: "3.12.x"
           
       - name: Install pipenv
         run: pip install pipenv
 
       - name: Install wkhtmltopdf
-        run: sudo apt-get install wkhtmltopdf
+        run: sudo apt-get install -y wkhtmltopdf --fix-missing
         
       - name: Run forecast for Mad Bna
         run: |
