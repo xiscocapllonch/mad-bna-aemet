@@ -26,7 +26,7 @@ async def get_weather_image(location_id):
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page(viewport={'width': 1024, 'height': 1150})
         await page.goto(full_url, timeout=60000)
-        await page.wait_for_timeout(1000)  # Esperar a que cargue contenido dinámico
+        await page.wait_for_timeout(500)
         await page.screenshot(path=TMP_IMG_PATH, clip={"x": 32, "y": 655, "width": 962, "height": 1100})
         await browser.close()
 
