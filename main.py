@@ -38,8 +38,8 @@ async def main():
 
     formatted_now = datetime.now(timezone.utc).strftime("%H:%M on %b %d")
     header_text = (
-        f"Forecast updated at {formatted_now} UTC. Weather for the Check Points defined in the route"
-        f" between Madrid and Barcelona. Updates every 6 hours.\n\n"
+        f"Forecast updated at {formatted_now} UTC. Weather for some of the locations along the"
+        f" Kromvojoj route across Spain. Updates every 6 hours.\n\n"
         f"<a href='{URL}'>©AEMET</a>"
     )
 
