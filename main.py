@@ -11,7 +11,7 @@ load_dotenv()
 URL = 'https://www.aemet.es/en/eltiempo/prediccion/municipios/'
 LOCATIONS = [
     {'aemet_id': 'castellvell-del-camp-id43042', 'caption': 'CP0 Castellvell del Camp'},
-    {'aemet_id': 'vic-id08298', 'caption': 'CP0 208 VIC'},
+    {'aemet_id': 'vic-id08298', 'caption': 'CP0 208 Vic'},
     {'aemet_id': 'puigcerda-id17141', 'caption': 'CP1 34 Puigcerdà'},
     {'aemet_id': 'sabinanigo-id22199', 'caption': 'CP2 53 Sabiñánigo'},
     {'aemet_id': 'barbastro-id22048', 'caption': 'CP2 176 Barbastro'},
